@@ -1,12 +1,83 @@
-Note: I have create another repo where you can convert your website into React Native App by just changing the url of App
-https://github.com/PuneetShivaay/Convert-Website-Into-React-Mobile-Mobile-App 
+# Flutter WebView App Builder 📱🌐
 
+A simple, fast, and customizable Flutter template to easily convert any responsive website into a native Android and iOS mobile application using the `webview_flutter` widget.
 
-# Convert-Website-into-App / Flutter App
-You can convert your website into app. You need to just simply download this code and update the url to your website url.
-To update the URL navigate to lib>src>app.dart 
-Change the url ('https://vragger.com') to Your website's URL & change the title ('Vragger') to Your App's title.
-![img](https://user-images.githubusercontent.com/56409021/118314543-ea9a8a00-b511-11eb-9afb-0fefad353ca0.png)
+## 🚀 Features
 
+- **Cross-Platform Compatibility:** Builds natively for both Android and iOS from a single codebase.
+- **Easy Configuration:** Just replace the target URL and App Title to get your web app running on mobile.
+- **SafeArea Support:** Keeps your web content neatly constrained within device screen boundaries (avoids notches and system UI overlapping).
+- **JavaScript Enabled:** Fully supports rich JavaScript web experiences, web applications, and frameworks.
 
-Website to Mobile App Converter: This project explores the capabilities of Flutter to transform web experiences into native-like mobile applications. I developed a user-friendly interface where users can input any website URL, and the application leverages Flutter's WebView widget to display the content within a mobile wrapper. This project allowed me to gain practical experience in cross-platform mobile development and understand the nuances of embedding web content in mobile apps.
+## 🛠 Prerequisites
+
+To run this project, make sure you have the following installed on your machine:
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) (latest stable version)
+- **Android Studio** (for Android development)
+- **Xcode** (for iOS development, requires a Mac)
+- An emulator/simulator or physical device connected
+
+## 💻 How to Use
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/alokydv9045/App-builder.git
+   cd App-builder
+   ```
+
+2. **Install dependencies:**
+   Fetch the necessary Flutter packages:
+   ```bash
+   flutter pub get
+   ```
+
+3. **Configure your Website URL & App Title:**
+   Navigate to `lib/src/app.dart`. 
+   
+   Locate the `WebViewContainer` and change the arguments:
+   ```dart
+   class App extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return MaterialApp(
+         // Change the URL to your website's URL & the Title to your App's Title
+         home: WebViewContainer('https://yourwebsite.com', 'Your App Name'),
+       );
+     }
+   }
+   ```
+
+4. **Run the App:**
+   ```bash
+   flutter run
+   ```
+
+## 🎨 Customizing your App
+
+### 1. App Name
+- **Android:** Edit `android/app/src/main/AndroidManifest.xml` and change the `android:label` value.
+- **iOS:** Edit `ios/Runner/Info.plist` and modify the value of `<key>CFBundleName</key>` and `<key>CFBundleDisplayName</key>`.
+
+### 2. App Icon
+To update the app icon, simply replace the image in `lib/assets/icon/icon.png` with your own 512x512 logo. Then, use the `flutter_launcher_icons` package to generate the native icons:
+```bash
+flutter pub run flutter_launcher_icons:main
+```
+
+## 📦 Building for Production
+
+When you are ready to publish your app to the Play Store or App Store, run the following commands to generate the release builds:
+
+**For Android (App Bundle):**
+```bash
+flutter build appbundle
+```
+
+**For iOS:**
+```bash
+flutter build ipa
+```
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
